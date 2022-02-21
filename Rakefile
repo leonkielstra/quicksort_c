@@ -13,4 +13,8 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-task default: %i[test rubocop]
+require "rake/extensiontask"
+
+Rake::ExtensionTask.new("quicksort_c_impl") do |ext|
+  ext.lib_dir = "lib/quicksort_c_impl"
+end
